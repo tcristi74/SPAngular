@@ -1,0 +1,39 @@
+#demo-container {
+    height: auto;
+}
+
+.dealsFormSearch-container {
+    display: inline-block;
+    width: 100%;
+    max-width: 320px;
+}
+
+.casesGrid {
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 0px;
+    /*border-style: solid;*/
+    /*border-width: thin;*/
+    /*border-color: #2d6da3;*/
+    width: 100%;
+    max-width: 70%
+}
+
+.casesGrid > div {
+    margin-top: 0px;
+}
+
+
+#flagsForm-search {
+    margin: 10px;
+    text-align: left    ;
+    padding-bottom: 50px;
+    width: 100%;
+
+}
+
+#flagsForm-search > div {
+    text-align: left;
+}
+
+

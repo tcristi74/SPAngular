@@ -1,0 +1,67 @@
+<nav></nav>
+
+<h5>this is DATA</h5>
+
+
+
+<h5>this is DATA</h5>
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<div>
+        <button ng-click="testJSOM()" type="button" class="btn btn-sm btn-primary">Test JSOM</button>
+        {{jsomMessage}}
+
+    <button ng-click="insertRow()" type="button" class="btn btn-sm btn-primary">Insert Row</button>
+
+
+</div>
+
+<div style="width: 200px">
+    <label for="deleteId" class="sr-only">Id for delete or update</label>
+    <input type="text"  ng-model="recId"  id="deleteId" class="form-control"
+           placeholder="Id for delete or update" required autofocus >
+    <p>
+    <button ng-click="deleteRow()" type="button" class="btn btn-sm btn-primary">Delete Row</button>
+    <p>
+    <label for="updateTitle" class="sr-only">New Title</label>
+    <input type="text"  ng-model="recTitle"  id="updateTitle"
+           class="form-control" placeholder="New Title" required autofocus >{{recTitle}}
+    <p>
+    <button ng-click="updateRow()" type="button" class="btn btn-sm btn-primary">Update title</button>
+
+
+</div>
+
+<table>
+    <thead>
+    <p>Sharepoint Lists</p>
+    </thead>
+    <tbody>
+    <tr>
+        <th>Title</th>
+    </tr>
+    <tr data-ng-repeat="rec in spLists">
+        <td>{{rec.Title}}</td>
+    </tr>
+    </tbody>
+</table>
+
+<table>
+    <thead>
+    <p>The button has been clicked {{message}} times.</p>
+    </thead>
+    <tbody>
+    <tr>
+        <th>ID</th>
+        <th>Title</th>
+        <th>Value</th>
+    </tr>
+    <tr data-ng-repeat="rec in recs">
+        <td>{{rec.Id}}</td>
+        <td>{{rec.Title}}</td>
+        <td>{{rec.Value}}</td>
+    </tr>
+    </tbody>
+</table>
+
+
+

@@ -1,0 +1,29 @@
+{
+  "name": "TradingJs",
+  "version": "1.0.0",
+  "description": "Trading extension",
+  "main": "index.js",
+  "scripts": {
+    "start": "http-server"
+  },
+  "keywords": [],
+  "author": "cristian tudose",
+  "license": "Powerex Corp.",
+  "jshintConfig": {},
+  "globals": {
+    "angular": true,
+    "jasmine": false,
+    "$": false,
+    "_": false,
+    "module": false,
+    "require": false
+  },
+  "devDependencies": {
+    "eslint": "^3.12.2",
+    "eslint-config-angular": "^0.5.0",
+    "eslint-config-standard": "^6.2.1",
+    "eslint-plugin-angular": "^1.5.0",
+    "eslint-plugin-promise": "^3.4.0",
+    "eslint-plugin-standard": "^2.0.1"
+  }
+}
