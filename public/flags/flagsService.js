@@ -23,7 +23,9 @@
 
           var getCaseDetail = function (id) {
             var query = '<View><Query><Where><Eq><FieldRef Name=\'ID\'/>' +
-                  '<Value Type=\'Text\'>' + id + '</Value></Eq></Where></Query></View>'
+                  '<Value Type=\'Text\'>' + id + '</Value></Eq></Where>' +
+                  // filed don't work '<ViewFields><FieldRef Name=\'FileLeafRef\' /><FieldRef Name=\'Title\' /></ViewFields>' +
+                  '</Query></View>'
             var promise1 = baseSvc.getUsingCAMLAndRest('Deals Library', query)
             return promise1.then(function (data) {
               var obj = []

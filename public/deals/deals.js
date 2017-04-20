@@ -1,10 +1,10 @@
 
     angular.module('app').component('deals', {
       templateUrl: '../SiteAssets/TradingJs/Public/deals/deals.html',
-      controller: ['$scope', 'dealsService', '$log', dealsCtrl]
+      controller: ['$scope', 'dealsService', '$log', '$window', dealsCtrl]
     })
 
-    function dealsCtrl (scope, dealsService, log) {
+    function dealsCtrl (scope, dealsService, log, $window) {
       log.info('scope', scope)
 
       scope.cases = []
@@ -31,7 +31,8 @@
           groupPanel: { visible: true, emptyPanelText: 'Drag a column header here to group grid records' },
           filterRow: { visible: true },
           searchPanel: { visible: true },
-          selection: { mode: 'none' },
+          selection: { mode: 'single' },
+          hoverStateEnabled: true,
           paging: {
             pageSize: 20,
             pageIndex: 1
@@ -46,25 +47,19 @@
             type: 'localStorage',
             storageKey: 'storage'
           },
-
           columns: [
             {
-              caption: 'Detail',
-              width: '10%',
+              dataField: 'DealName',
+              width: '30%',
               cellTemplate: function (container, options) {
                 $('<a/>').addClass('dx-link')
-                          .text('Expand')
+                          .text(options.data.DealName)
                           .on('dxclick', function () {
-                            log.info('click', options.data)
+                            alert('case landing for id=' + options.data.Id)
+                              // $window.location.href = '#!/flags?itemId=' + options.data.Id
                           })
                           .appendTo(container)
               }
-            },
-            {
-              dataField: 'DealName',
-              dataType: 'string',
-              width: '30%',
-              caption: 'Name'
             }, {
               dataField: 'DealStatus',
               dataType: 'string',
@@ -87,9 +82,21 @@
               dataType: 'string',
               width: '20%',
               caption: 'Modified By'
-            }
-
-          ]
+            },
+            {
+              width: '10%',
+              cellTemplate: function (container, options) {
+                $('<a/>').addClass('dx-link')
+                          .text('Flags')
+                          .on('dxclick', function () {
+                              $window.location.href = '#!/flags?itemId=' + options.data.Id
+                          })
+                          .appendTo(container)
+              }
+            }]
+          // onSelectionChanged: function (selectedItems) {
+          //   var data = selectedItems.selectedRowsData[0]
+          // }
         }
       }, function (error) {
         log.error('error getting deals', error)
