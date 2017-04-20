@@ -1,7 +1,7 @@
    angular.module('app')
          .factory('baseSvc', ['$http', '$log', '$document', '$timeout', '$q', function ($http, log, $document, timeout, q) {
-           var baseUrl = 'http://prksp2013tst03/teamsites/trading/Deals'  // _spPageContextInfo.webAbsoluteUrl
-           var siteCollectionUrl = 'http://prksp2013tst03/teamsites/trading'  // _spPageContextInfo.webAbsoluteUrl
+           var baseUrl = _spPageContextInfo.webAbsoluteUrl
+           var siteCollectionUrl = baseUrl + '/trading'
            var listEndPoint = '/_api/web/lists'
 
            var getRequest = function (query) {
@@ -24,7 +24,7 @@
            var postRequest = function (data, query) {
              log.info('start POST baseSvc', data)
              // this is how you get the ListItemEntityTypeFullName
-             // http://prksp2013tst03/teamsites/trading/Deals/_api/lists/getbytitle('Caseinfo')?$select=ListItemEntityTypeFullName
+             // baseUrl+'/_api/lists/getbytitle('Caseinfo')?$select=ListItemEntityTypeFullName
 
              var dataAsJson = angular.toJson(data)
              var digest = $document[0].getElementById('__REQUESTDIGEST').value
@@ -235,7 +235,6 @@
 
              return defer.promise
            }
-
 
            // this uses post to get Json rest API
            function getListItems (listTitle, queryViewXml) {
