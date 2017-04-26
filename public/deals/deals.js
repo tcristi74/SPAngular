@@ -1,4 +1,3 @@
-
     angular.module('app').component('deals', {
       templateUrl: '../SiteAssets/TradingJs/Public/deals/deals.html',
       controller: ['$scope', 'dealsService', '$log', '$window', dealsCtrl]
@@ -55,8 +54,8 @@
                 $('<a/>').addClass('dx-link')
                           .text(options.data.DealName)
                           .on('dxclick', function () {
-                            alert('case landing for id=' + options.data.Id)
-                              // $window.location.href = '#!/flags?itemId=' + options.data.Id
+                            dealsService.dealRecord = options.data
+                            $window.location.href = '#!/home'
                           })
                           .appendTo(container)
               }
@@ -89,7 +88,7 @@
                 $('<a/>').addClass('dx-link')
                           .text('Flags')
                           .on('dxclick', function () {
-                              $window.location.href = '#!/flags?itemId=' + options.data.Id
+                            $window.location.href = '#!/flags?itemId=' + options.data.Id
                           })
                           .appendTo(container)
               }
@@ -98,6 +97,7 @@
           //   var data = selectedItems.selectedRowsData[0]
           // }
         }
+
       }, function (error) {
         log.error('error getting deals', error)
         DevExpress.ui.notify('There were errors loading the case grid')
