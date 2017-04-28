@@ -6,5 +6,25 @@
     font-size: 18px;
     font-weight: bold;
     float: left;
-
+    /*border: solid;*/
 }
+
+/*treeview css*/
+.dx-treeview{
+    margin: auto;
+    width: 400px;
+    padding-left: 10px;
+    float: left;
+}
+.wrapper{
+    /*border: dashed;*/
+    clear:both;
+    /*height:400px;*/
+    padding-top: 20px;
+    margin: 0 auto;
+    float: left;
+    width: 100%;
+    max-width: 70%
+}
+
+

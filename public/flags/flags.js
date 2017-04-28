@@ -103,49 +103,6 @@ function flagsCtrl (scope, flagsService, log, routeParams) {
           width: 150,
           allowEditing: true
         },
-        //   {
-        //   width: 90,
-        //   alignment: 'center',
-        //   cellTemplate: function (container, options) {
-        //     container.addClass('dx-fileUploader1')
-        //     $('<div />').dxFileUploader({
-        //       uploadFailedMessage: '',
-        //       labelText: '',
-        //       // onUploadStarted: function (aa) {
-        //       //   log.info('vv')
-        //       // },
-        //       // optionChanged: function (av) {
-        //       //   log.info('aa')
-        //       // },
-        //       onUploaded: function (value) {
-        //         options.data.LinksAgreementCitation = value.file.name
-        //       },
-        //       // onValueChanged: function (e) {
-        //       //   $.each(e.values, function (_, value) {
-        //       //     var fileUrl = URL.createObjectURL(value)
-        //       //    log.info(valuew)
-        //       //   })
-        //       // }
-        //     }).appendTo(container)
-        //   }
-        // },
-        // {
-        //   width: 90,
-        //   alignment: 'center',
-        //   cellTemplate: function (container, options) {
-        //     container.addClass('dx-fileUploader2')
-        //     $('<div />').dxButton({
-        //       text: 'aaa',
-        //       onClick: function (event) {
-        //         var inputb = $(document.getElementById('theFile'))
-        //         inputb.click()
-        //         log.info(inputb.value)
-        //       }
-        //
-        //     }).appendTo(container)
-        //   }
-        // },
-
         {
           dataField: 'LinkAgreementCitation',
           caption: 'Links Agreement',

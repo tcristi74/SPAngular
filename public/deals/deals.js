@@ -55,7 +55,7 @@
                           .text(options.data.DealName)
                           .on('dxclick', function () {
                             dealsService.dealRecord = options.data
-                            $window.location.href = '#!/home'
+                            $window.location.href = '#!/treeFolder'
                           })
                           .appendTo(container)
               }

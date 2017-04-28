@@ -54,9 +54,9 @@
             })
           }
 
-          var getRecentlyModifiedFiles = function (folderName) {
+          var getFolderFiles = function (folderName) {
             var query = "/_api/Web/GetFolderByServerRelativeUrl('DealsLibrary/" + folderName +
-                    "')?$expand=Folders/Files/ModifiedBy,Files/ModifiedBy"
+                    "')?$expand=Folders/Folders/Files/ModifiedBy,Folders/Files/ModifiedBy,Files/ModifiedBy"
 
             var promise1 = baseService.getRequest(query)
             return promise1.then(function (data) {
@@ -67,12 +67,13 @@
                 return obj
               }
 
+              analyseFolderRec(obj, data)
                         // look first for files in the root
-              getFileInfo(data.Files.results, obj, folderName)
-
-              angular.forEach(data.Folders.results, function (record) {
-                getFileInfo(record.Files.results, obj, folderName)
-              })
+              // getFileInfo(data.Files.results, obj)
+              //
+              // angular.forEach(data.Folders.results, function (record) {
+              //   getFileInfo(record.Files.results, obj)
+              // })
 
                         // sort this by modified descending
               obj.sort(function (a, b) {
@@ -147,20 +148,49 @@
                     })
           }
 
-          function getFileInfo (nodes, files, folderName) {
+          var analyseFolderRec = function (obj, data) {
+            if (angular.isDefined(data.Folders)) {
+              angular.forEach(data.Folders.results, function (record) {
+                analyseFolderRec(obj, record)
+              })
+            }
+            if (angular.isDefined(data.Files)) {
+              getFileInfo(data.Files.results, obj)
+            }
+          }
+
+          function getFileInfo (nodes, files) {
             angular.forEach(nodes, function (node) {
               var arr = node.ServerRelativeUrl.split('/')
-              var folder = arr[arr.length - 2]
-              if (folder === folderName) {
-                folder = ''
+              var newarr = []
+              // cut stuff we don't need from array
+              var startAdd = false
+              for (var i = 0; i < arr.length - 1; i++) {
+                if (startAdd) {
+                  newarr.push(arr[i])
+                } else {
+                    // get the bibraryName
+                  if (arr[i] === 'DealsLibrary') {
+                    startAdd = true
+                  }
+                }
+              }
+              var folder = ''
+              arr = newarr
+              for (i = 1; i < arr.length; i++) {
+                folder += arr[i] + '/'
+              }
+              if (folder.endsWith('/')) {
+                folder = folder.substr(0, folder.length - 1)
               }
 
               files.push({
                 Folder: folder,
-                Path: node.ServerRelativeUrl,
+                Path: arr,
                 Name: node.Name,
                 Modified: node.TimeLastModified,
                 ModifiedBy: node.ModifiedBy.Title,
+                Url: node.ServerRelativeUrl,
                 Extension: (node.Name.lastIndexOf('.') > 0 ? node.Name.substring(node.Name.lastIndexOf('.') + 1) : '')
               })
             })
@@ -169,7 +199,7 @@
           return {
             getAllCases: getAllCases,
             dealRecord: dealRecord,
-            getRecentlyModifiedFiles: getRecentlyModifiedFiles,
+            getFolderFiles: getFolderFiles,
             getRecentlyModifiedFilesAllCases: getRecentlyModifiedFilesAllCases
           }
         }])

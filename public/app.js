@@ -31,7 +31,7 @@
 //
 angular.module('app', ['ngRoute', 'dx'])
     .controller('mainCtrl', function ($scope) {
-        $scope.name = 'Case site'
+      $scope.name = 'Case site'
     })
     .run(function ($rootScope, $location) {
         // $location.path('/data')
@@ -55,15 +55,21 @@ angular.module('app', ['ngRoute', 'dx'])
             .when('/flags', {
               template: '<flags></flags>'
             })
+            .when('/cases', {
+              template: '<deals></deals>'
+            })
             .when('/rfiles', {
               template: '<rfiles></rfiles>'
             })
             .when('/mfiles', {
               template: '<mfiles></mfiles>'
             })
-            .when('/cases', {
-              template: '<deals></deals>'
+            .when('/treeFolder', {
+              template: '<tree></tree>'
             })
+            // .when('/gridView', {
+            //   template: '<deals></deals>'
+            // })
             .otherwise('/cases')
     })
 /*    .constant('IS_APP_WEB', false)

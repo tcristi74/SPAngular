@@ -1,0 +1,27 @@
+<div class="dx-viewport">
+    <div class="home-container">
+        <div>
+            <span id="title">{{caseName}}</span>
+            <div style="float:left; " class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="#/">Back</a></li>
+                    <li><a href="#!/treeFolder">Tree View</a></li>
+                    <!--<li><a href="#!/home">Grid View</a></li>-->
+                </ul>
+            </div>
+        </div>
+        <div class="wrapper">
+            <div class="treeView" dx-tree-view="treeViewOptions" dx-item-alias="data">
+                <div data-options="dxTemplate: {name: 'item'}">
+                    <div>
+                        {{data.text}}
+                    </div>
+                </div>
+            </div>
+            <div class="casesGrid">
+                <div id="gridRecentlyModified" dx-data-grid="gridFiles"/>
+            </div>
+
+        </div>
+    </div>
+</div>
