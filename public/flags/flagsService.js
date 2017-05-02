@@ -190,13 +190,28 @@
             return true
           }
 
+          var updateTnums = function (id, tnums) {
+            var url = listEndPoint + "/GetByTitle('Deals%20Library')/GetItemById(" + id + ')'
+            var updateData = {
+              __metadata: { type: 'SP.Data.DealsLibraryItem' },
+              TNUMs: tnums
+            }
+
+            baseSvc.updateRequest(updateData, url).then(function (data) {
+              log.info('data updated')
+            }, function (error) {
+              log.error('error updated', error)
+            })
+          }
+
           return {
             getCaseDetail: getCaseDetail,
             getFlags: getFlags,
             getCaseFlags: getCaseFlags,
             isDate: isDate,
             upsertCaseInfo: upsertCaseInfo,
-            deleteCaseInfo: deleteCaseInfo
+            deleteCaseInfo: deleteCaseInfo,
+            updateTnums: updateTnums
           }
         }])
 })()

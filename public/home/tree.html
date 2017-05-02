@@ -3,25 +3,25 @@
         <div>
             <span id="title">{{caseName}}</span>
             <div style="float:left; " class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li><a href="#/">Back</a></li>
-                    <li><a href="#!/treeFolder">Tree View</a></li>
+                <ul class="nav navbar-nav c1">
+                    <li class="l1"><a href="#/">Back</a></li>
+                    <li class="l1"><a href="#!/treeFolder">Tree View</a></li>
                     <!--<li><a href="#!/home">Grid View</a></li>-->
                 </ul>
             </div>
         </div>
-        <div class="wrapper">
-            <div class="treeView" dx-tree-view="treeViewOptions" dx-item-alias="data">
-                <div data-options="dxTemplate: {name: 'item'}">
-                    <div>
-                        {{data.text}}
-                    </div>
+        <!--<div class="wrapper">-->
+        <div id="t1" class="treeView" dx-tree-view="treeViewOptions" dx-item-alias="data">
+            <div data-options="dxTemplate: {name: 'item'}">
+                <div>
+                    {{data.text}}
                 </div>
             </div>
-            <div class="casesGrid">
-                <div id="gridRecentlyModified" dx-data-grid="gridFiles"/>
-            </div>
-
         </div>
+        <div class="gridr">
+            <div id="gridRecentlyModified" dx-data-grid="gridFiles"/>
+        </div>
+
+        <!--</div>-->
     </div>
 </div>

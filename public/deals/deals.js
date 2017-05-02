@@ -49,6 +49,7 @@
           columns: [
             {
               dataField: 'DealName',
+              dataType: 'string',
               width: '30%',
               cellTemplate: function (container, options) {
                 $('<a/>').addClass('dx-link')
@@ -84,6 +85,7 @@
             },
             {
               width: '10%',
+              dataType: 'string',
               cellTemplate: function (container, options) {
                 $('<a/>').addClass('dx-link')
                           .text('Flags')

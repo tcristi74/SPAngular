@@ -11,10 +11,38 @@
     /*border-width: thin;*/
     /*border-color: #2d6da3;*/
     width: 100%;
-    max-width: 70%
+    /*max-width: 958%*/
 }
 
 
 .casesGrid > div {
     margin-top: 0px;
+}
+
+
+.c1 {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: auto;
+    border: 1px solid #e7e7e7;
+    background-color: #f3f3f3;
+}
+
+.l1 {
+    float: left;
+}
+
+.l1 a {
+    display: block;
+    color: #666;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size:larger;
+}
+
+.l1 a:hover:not(.active) {
+    background-color: #0092cf;
+    color :white
 }

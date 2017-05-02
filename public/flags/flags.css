@@ -1,19 +1,29 @@
-.dealsFormSearch-container {
-    display: inline-block;
-    width: 100%;
-    max-width: 320px;
-}
-
 #flagsForm-search {
     margin: 10px;
     text-align: left    ;
     padding-bottom: 50px;
-    width: 100%;
-
+    width: 98%;
 }
-
 #flagsForm-search > div {
     text-align: left;
 }
 
 
+.dealsFormSearch-container {
+    display: inline-block;
+    width: 20%;
+    /*border: dotted;*/
+    float: left;
+}
+
+
+#casesgridFlag {
+    /*display: inline-block;*/
+    vertical-align: top;
+    margin-left: 0px;
+    /*border-style: solid;*/
+    /*border-width: thin;*/
+    /*border-color: #2d6da3;*/
+    width: 80%;
+    float: left
+}

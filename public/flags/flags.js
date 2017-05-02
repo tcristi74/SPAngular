@@ -82,7 +82,7 @@ function flagsCtrl (scope, flagsService, log, routeParams) {
         {
           dataField: 'Flag',
           caption: 'Flag',
-          width: 200,
+          width: '25%',
           lookup: {
             dataSource: scope.caseFlags,
             displayExpr: 'Flag',
@@ -91,7 +91,7 @@ function flagsCtrl (scope, flagsService, log, routeParams) {
         }, {
           dataField: 'Description',
           caption: 'Value',
-          width: 150,
+          width: '18%',
           allowEditing: true,
           validationRules: [{
             type: 'required',
@@ -100,13 +100,13 @@ function flagsCtrl (scope, flagsService, log, routeParams) {
         }, {
           dataField: 'RequiredAction',
           caption: 'RequiredAction',
-          width: 150,
+          width: '18%',
           allowEditing: true
         },
         {
           dataField: 'LinkAgreementCitation',
           caption: 'Links Agreement',
-          width: 300,
+          width: '39%',
           allowEditing: true
         }
       ]
@@ -196,20 +196,55 @@ function flagsCtrl (scope, flagsService, log, routeParams) {
   function saveGrid () {
     var newRecs = 0
     var editedRecs = 0
+    var newtnums = ''
     angular.forEach(scope.data1, function (record) {
       // log.info(record.ID + '   edit: ' + String(record.IsEdited))
+      newtnums = addTnum(newtnums, record.Flag)
       if (record.ID === 0) {
         newRecs++
       } else if (record.IsEdited) {
+        // check if the tag is there, if not add it
         editedRecs++
       }
     })
-    if (newRecs + editedRecs === 0) {
+
+    newtnums = cleanTnum(newtnums)
+      // create a new
+    var saved = false
+    if (newRecs + editedRecs > 0) {
+      DevExpress.ui.notify('Saving Case Info...')
+      flagsService.upsertCaseInfo(scope.data1, itemId, scope.caseFlags)
+      saved = true
+    }
+        // update the Tnums
+    if (newtnums !== '' && searchData.CrossReferences !== newtnums) {
+      DevExpress.ui.notify('Saving Cross Reference...')
+      flagsService.updateTnums(itemId, newtnums)
+      saved = true
+    }
+
+    if (!saved) {
       DevExpress.ui.notify('No records have been modified.')
     } else {
-      DevExpress.ui.notify('Saving...')
-      flagsService.upsertCaseInfo(scope.data1, itemId, scope.caseFlags)
+      DevExpress.ui.notify('Saved!')
     }
+  }
+
+  var addTnum = function (tnums, tnum) {
+    if (tnums === null) {
+      tnums = ''
+    }
+    if (tnums.indexOf(tnum) < 0) {
+      tnums += tnum + ';'
+    }
+    return tnums
+  }
+
+  var cleanTnum = function (tnum) {
+    if (tnum.lastIndexOf(';') === tnum.length - 1) {
+      return tnum.substr(0, tnum.length - 1)
+    }
+    return tnum
   }
 
   scope.saveButtonOptions = {

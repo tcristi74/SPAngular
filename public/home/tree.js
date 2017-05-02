@@ -60,7 +60,7 @@ function treeCtrl (scope, dealsService, log, $window) {
                             .on('dxclick', function () {
                               // $window.location.href = options.data.Folder + '/' + options.data.Name
                               // $window.location.href = '/teamsites/trading/Deals/DealsLibrary/' +  options.data.Path + '/' + options.data.Name
-                                $window.location.href = options.data.Url
+                              $window.location.href = options.data.Url
                             })
                             .appendTo(container)
           }
@@ -92,7 +92,16 @@ function treeCtrl (scope, dealsService, log, $window) {
       width: 320,
       expandedExpr: 'expanded',
       hoverStateEnabled: true,
-      // showCheckBoxesMode: 'normal',
+      onContentReady: function (e) {
+        log.info('treecontentready')
+        scope.widgetInstance = e.component
+        // var itemElement  = scope.widgetInstance.selectItem('root')
+        var itemElement = scope.widgetInstance.element().find("[data-item-id='root'] > .dx-treeview-item").get(0)
+        scope.widgetInstance.expandItem(itemElement)
+
+        // var itemToSelect = scope.widgetInstance.element().find('.dx-treeview-node').first()
+        // itemToSelect.addClass('dx-state-focused')
+      },
       onItemClick: function (e) {
         var item = e.itemData
         var foldername = item.id
@@ -103,10 +112,15 @@ function treeCtrl (scope, dealsService, log, $window) {
           $('#gridRecentlyModified').dxDataGrid('instance').filter('Folder', 'startswith', foldername)
         }
       }
+      // onInitialized: function (e) {
+      //   scope.widgetInstance = e.component
+      //   scope.widgetInstance.selectItem(scope.itemElement.id)
+      // }
     }
   }, function (errorData) {
     log.error('errorData', errorData)
   })
+
   scope.checkedItems = []
 
   function buildTree () {
@@ -134,6 +148,11 @@ function treeCtrl (scope, dealsService, log, $window) {
         }
       }
     })
+
+     // selecvt first node
+    // var treeView = $('#t1').dxTreeView('instance')
+    // var itemToSelect = treeView.element().find('.dx-treeview-node').first()
+    // itemToSelect.addClass('dx-state-focused')
   }
 
   function checkAddRec (sourceArr, y, arr) {
