@@ -7,18 +7,12 @@
     display: inline-block;
     vertical-align: top;
     margin-left: 0px;
-    /*border-style: solid;*/
-    /*border-width: thin;*/
-    /*border-color: #2d6da3;*/
     width: 100%;
-    /*max-width: 958%*/
 }
-
 
 .casesGrid > div {
     margin-top: 0px;
 }
-
 
 .c1 {
     list-style-type: none;
@@ -29,20 +23,19 @@
     background-color: #f3f3f3;
 }
 
-.l1 {
+
+.c1>li {
     float: left;
 }
 
-.l1 a {
-    display: block;
-    color: #666;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-size:larger;
+
+.c1>li>a {
+     padding-top: 5px;
+     padding-bottom: 5px;
 }
 
-.l1 a:hover:not(.active) {
+
+.c1>li>a:hover:not(.active) {
     background-color: #0092cf;
     color :white
 }

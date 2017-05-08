@@ -53,7 +53,7 @@ function treeCtrl (scope, dealsService, log, $window) {
         {
           dataField: 'Name',
           sortOrder: 'asc',
-          width: '50%',
+          width: '40%',
           cellTemplate: function (container, options) {
             $('<a/>').addClass('dx-link')
                             .text(options.data.Name)
@@ -67,7 +67,7 @@ function treeCtrl (scope, dealsService, log, $window) {
         }, {
           dataField: 'Folder',
           dataType: 'string',
-          width: '15%',
+          width: '30%',
           caption: 'Folder'
         },
         {
@@ -80,7 +80,7 @@ function treeCtrl (scope, dealsService, log, $window) {
         {
           dataField: 'ModifiedBy',
           dataType: 'string',
-          width: '20%',
+          width: '15%',
           caption: 'Modified By'
         }
       ]
@@ -89,7 +89,7 @@ function treeCtrl (scope, dealsService, log, $window) {
     scope.treeViewOptions = {
       // items: treeItem,
       bindingOptions: {dataSource: 'treeObject'},
-      width: 320,
+      width: '15%',
       expandedExpr: 'expanded',
       hoverStateEnabled: true,
       onContentReady: function (e) {
@@ -99,8 +99,6 @@ function treeCtrl (scope, dealsService, log, $window) {
         var itemElement = scope.widgetInstance.element().find("[data-item-id='root'] > .dx-treeview-item").get(0)
         scope.widgetInstance.expandItem(itemElement)
 
-        // var itemToSelect = scope.widgetInstance.element().find('.dx-treeview-node').first()
-        // itemToSelect.addClass('dx-state-focused')
       },
       onItemClick: function (e) {
         var item = e.itemData
@@ -112,10 +110,6 @@ function treeCtrl (scope, dealsService, log, $window) {
           $('#gridRecentlyModified').dxDataGrid('instance').filter('Folder', 'startswith', foldername)
         }
       }
-      // onInitialized: function (e) {
-      //   scope.widgetInstance = e.component
-      //   scope.widgetInstance.selectItem(scope.itemElement.id)
-      // }
     }
   }, function (errorData) {
     log.error('errorData', errorData)
@@ -132,10 +126,7 @@ function treeCtrl (scope, dealsService, log, $window) {
       }
     ]
 
-    // var x
     angular.forEach(scope.caseFiles, function (record) {
-     // x++
-     // var idx = '1_' + x
       var p = 0
       var s = 0
       for (var i = 1; i < record.Path.length; i++) {
@@ -149,10 +140,6 @@ function treeCtrl (scope, dealsService, log, $window) {
       }
     })
 
-     // selecvt first node
-    // var treeView = $('#t1').dxTreeView('instance')
-    // var itemToSelect = treeView.element().find('.dx-treeview-node').first()
-    // itemToSelect.addClass('dx-state-focused')
   }
 
   function checkAddRec (sourceArr, y, arr) {

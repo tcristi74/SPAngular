@@ -9,34 +9,20 @@
     /*border: solid;*/
 }
 
-/*treeview css*/
+
 .dx-treeview{
     clear:both;
     margin: auto;
-    width: 30%;
+    width: 15%;
     padding-left: 10px;
     float: left;
-    /*border: dotted;*/
 }
 .gridr {
-    /*display: inline-block;*/
     vertical-align: top;
     margin-left: 0px;
-    /*border-style: solid;*/
-    /*border-width: thin;*/
-    /*border-color: #2d6da3;*/
-    width: 80%;
+    width: 85%;
     float: left
 }
 
-/*.wrapper{*/
-    /*border: dashed;*/
-    /*clear:both;*/
-    /*!*height:400px;*!*/
-    /*padding-top: 20px;*/
-    /*margin: 0 auto;*/
-    /*!*float: left;*!*/
-    /*width: 100%;*/
-/*}*/
 
 

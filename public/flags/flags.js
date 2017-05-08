@@ -160,7 +160,7 @@ function flagsCtrl (scope, flagsService, log, routeParams) {
     } }
 
   scope.formOptions = {
-    width: 300,
+    // width: 240,
     colCount: 1,
     formData: searchData,
     items: [
@@ -188,7 +188,6 @@ function flagsCtrl (scope, flagsService, log, routeParams) {
         dataField: 'TermStartDate', editorType: 'dxDateBox', editorOptions: {disabled: false, value: null}
       }, {
         dataField: 'TermEndDate', editorType: 'dxDateBox', editorOptions: {value: null}
-        // validationRules: [{type: 'required', message: 'Hire date is required'}]
       }, {dataField: 'Modified', editorType: 'dxDateBox', editorOptions: {value: null}
       }
     ]}
@@ -198,7 +197,6 @@ function flagsCtrl (scope, flagsService, log, routeParams) {
     var editedRecs = 0
     var newtnums = ''
     angular.forEach(scope.data1, function (record) {
-      // log.info(record.ID + '   edit: ' + String(record.IsEdited))
       newtnums = addTnum(newtnums, record.Flag)
       if (record.ID === 0) {
         newRecs++

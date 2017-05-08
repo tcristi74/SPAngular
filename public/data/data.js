@@ -27,44 +27,11 @@ function dataCtrl (scope, dataService, log) {
         Title: 'demo' + scope.cnt
       })
 
-/*
-      var listEnumerator = result.getEnumerator()
-      while (listEnumerator.moveNext()) {
-        var oList = listEnumerator.get_current()
-
-        scope.spLists.push({
-          Title: oList.get_title()
-        })
-      }
- */
       log.info('done2.1', scope.spLists)
     //  scope.$digest()
     }, function (errorData) {
       log.error('errorData', errorData)
     })
-
-/*    p.done(function (result) {
-          // result is an SP.List because that is what we passed to resolve()!
-          // do something with the list
-      var listEnumerator = result.getEnumerator()
-      while (listEnumerator.moveNext()) {
-        var oList = listEnumerator.get_current()
-
-        data1.push({
-          Title: oList.get_title()
-        })
-      }
-      scope.spLists = data1
-      log.info('done2.1')
-      scope.jsomMessage = 'test'
-    })
-    p.fail(function (result) {
-          // result is a string because that is what we passed to reject()!
-      var error = result
-      log.error('err')
-      log.error(error)
-    })
-*/
   }
 
   scope.insertRow = function () {
@@ -75,8 +42,6 @@ function dataCtrl (scope, dataService, log) {
       Title: 'demo2',
       Value: '100'
     }
-
-   // dataService.postRec(insertData)
 
     dataService.postRec(insertData).then(function (data) {
       scope.message = 'post data'

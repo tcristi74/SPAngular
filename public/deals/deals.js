@@ -11,9 +11,7 @@
 
       dealsService.getAllCases().then(function (results) {
         scope.cases = results
-
         scope.IsVisible = false
-
         scope.gridOptions = {
           bindingOptions: { dataSource: 'cases' },
           editing: {
@@ -22,7 +20,6 @@
             allowDeleting: false,
             allowAdding: false
           },
-         // showLoadIndicator: true,
           allowColumnResizing: true,
           allowColumnReordering: true,
           columnChooser: { enabled: true },
@@ -94,10 +91,15 @@
                           })
                           .appendTo(container)
               }
-            }]
-          // onSelectionChanged: function (selectedItems) {
-          //   var data = selectedItems.selectedRowsData[0]
-          // }
+            },
+            {
+              dataField: 'Tnums',
+              dataType: 'string',
+              width: '10%',
+              caption: 'Cross References',
+              visible: false
+            }
+          ]
         }
 
       }, function (error) {

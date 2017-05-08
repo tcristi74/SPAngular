@@ -15,8 +15,6 @@
               return false
             }
           }
-            // "GetByTitle('Deals%20Library')/Items?$select=LinkFilename,Case_x0020_Type,Deal_x0020_Status,Modified,Editor/Title&$expand=Editor/ID&$filter=ContentType eq 'Deal File Folder'&$orderby=Modified desc&$top=50"
-            // get all cases order by modified
           var getAllCases = function () {
             if (useCache()) {
               log.info('read cases from cache')
@@ -26,7 +24,7 @@
             }
 
             var query = listEndPoint + "/GetByTitle('Deals%20Library')/Items?" +
-                    '$select=LinkFilename,Id,Case_x0020_Type,Deal_x0020_Status,Modified,Editor/Title&$expand=Editor/ID' +
+                    '$select=LinkFilename,Id,Case_x0020_Type,Deal_x0020_Status,TNUMs,Modified,Editor/Title&$expand=Editor/ID' +
                     "&$filter=ContentType eq 'Deal File Folder'" +
                     '&$orderby=Modified desc&' +
                     '$top=5000'
@@ -43,7 +41,8 @@
                   DealStatus: record.Deal_x0020_Status,
                   Modified: record.Modified,
                   Editor: record.Editor.Title,
-                  Id: record.Id
+                  Id: record.Id,
+                  Tnums: record.TNUMs
                 })
               })
               // expire in 10 minute
