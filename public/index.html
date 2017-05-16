@@ -1,85 +1,49 @@
 <!DOCTYPE html>
 <html>
 
+<head>
 
-<body class="container">
 <link rel="stylesheet" type="text/css" href="lib/devExtreme16.2.3/css/dx.common.css" />
 <link rel="stylesheet" type="text/css"  href="lib/devExtreme16.2.3/css/dx.light.compact.css" />
 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <link rel="stylesheet" href="styles.css">
 <link rel="stylesheet" href="deals/deals.css">
+<link rel="stylesheet" href="flags/flags.css">
+<link rel="stylesheet" href="home/home.css">
+<link rel="stylesheet" href="main.css">
 
-<!--
-<link rel="stylesheet" href="lib/devExtreme16.2.3/css/dx.common.css">
-<link rel="dx-theme"  href="lib/devExtreme16.2.3/css/dx.dark.css">
--->
-
-<!--jquery -->
-<script type="text/javascript" src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-2.1.4.min.js"></script>
-
-/*https://github.com/maurobussini/jslinq */
-<script src="lib/jslinq.min.js"></script>
 
 <script src="lib/other/spyreqs.min.js"></script>
 
+<script src="lib/jslinq.min.js"></script>
 <script src="lib/globalize/globalize.min.js"></script>
 <script src="lib/angular1.6.0/angular.min.js"></script>
 <script src="lib/angular1.6.0/angular-route.min.js"></script>
 <script src="lib/angular1.6.0/angular-sanitize.min.js"></script>
-
 <script src="lib/devExtreme16.2.3/dx.all.js"></script>
 
+<script type="text/javascript" src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-2.1.4.min.js"></script>
 
 <script src="app.js"></script>
 <script src="nav/nav.js"></script>
+<script src="home/tree.js"></script>
 <script src="data/data.js"></script>
+<script src="data/dataService.js"></script>
 <script src="deals/deals.js"></script>
 <script src="deals/dealsService.js"></script>
-<script src="data/dataService.js"></script>
+<script src="flags/flags.js"></script>
+<script src="flags/flagsService.js"></script>
 <script src="lib/baseSvc.js"></script>
+<script src="files/files.js"></script>
 
+<script type="text/javascript" src="/_layouts/15/SP.Runtime.js"> </script>
+<script type="text/javascript" src="/_layouts/15/SP.js"> </script>
+</head>
 
-<!--
-
-<script type="text/javascript" src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-2.1.4.min.js"></script>
-<script src="/teamsites/trading/Deals/SiteAssets/TradingJs/Public/lib/jslinq.min.js"></script>
-<script src="/teamsites/trading/Deals/SiteAssets/TradingJs/Public/lib/globalize/globalize.min.js"></script>
-<script src="/teamsites/trading/Deals/SiteAssets/TradingJs/Public/lib/angular1.6.0/angular.min.js"></script>
-<script src="/teamsites/trading/Deals/SiteAssets/TradingJs/Public/lib/angular1.6.0/angular-route.min.js"></script>
-<script src="/teamsites/trading/Deals/SiteAssets/TradingJs/Public/lib/angular1.6.0/angular-sanitize.min.js"></script>
-<script src="/teamsites/trading/Deals/SiteAssets/TradingJs/Public/lib/devExtreme16.2.3/dx.all.js"></script>
-
-<link  href="/teamsites/trading/Deals/SiteAssets/TradingJs/Public/styles.css"  rel="stylesheet">
-<link rel="stylesheet" href="/teamsites/trading/Deals/SiteAssets/TradingJs/Public/lib/devExtreme16.2.3/css/dx.common.css">
-<link rel="stylesheet" href="/teamsites/trading/Deals/SiteAssets/TradingJs/Public/lib/devExtreme16.2.3/css/dx.light.compact.css">
-
-<link rel="stylesheet" href="/teamsites/trading/Deals/SiteAssets/TradingJs/Public/deals/deals.css">
-<link rel="stylesheet" href="/teamsites/trading/Deals/SiteAssets/TradingJs/Public/flags/flags.css">
-
-
-
-<script src="/teamsites/trading/Deals/SiteAssets/TradingJs/Public/app.js"></script>
-<script src="/teamsites/trading/Deals/SiteAssets/TradingJs/Public/appRecentFiles.js"></script>
-<script src="/teamsites/trading/Deals/SiteAssets/TradingJs/Public/nav/nav.js"></script>
-
-<script src="/teamsites/trading/Deals/SiteAssets/TradingJs/Public/data/data.js"></script>
-<script src="/teamsites/trading/Deals/SiteAssets/TradingJs/Public/data/dataService.js"></script>
-<script src="/teamsites/trading/Deals/SiteAssets/TradingJs/Public/deals/deals.js"></script>
-<script src="/teamsites/trading/Deals/SiteAssets/TradingJs/Public/deals/dealsService.js"></script>
-
-<script src="/teamsites/trading/Deals/SiteAssets/TradingJs/Public/lib/baseSvc.js"></script>
-<script src="/teamsites/trading/Deals/SiteAssets/TradingJs/Public/flags/flags.js"></script>
-<script src="/teamsites/trading/Deals/SiteAssets/TradingJs/Public/flags/flagsService.js"></script>
--->
-
-<!--
-<div ng-app="app" ng-controller="MyController" class="ng-scope ng-binding">
--->
-
-<div ng-app="app" ng-controller="MyController">
+<body class="container">
+<div ng-app="app" ng-controller="mainCtrl">
    <ng-view></ng-view>
 </div>
-
 
 </body>
 </html>
